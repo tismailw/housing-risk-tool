@@ -1,0 +1,43 @@
+# Environment variables
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.egg-info/
+.venv/
+venv/
+
+# Node / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+*.log
+logs/
+*.out
+*.err
+
+# Docker
+docker-data/
+volumes/
+*.pid
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Tests & coverage
+htmlcov/
+.coverage
+.pytest_cache/

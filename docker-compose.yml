@@ -1,0 +1,51 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: ../Dockerfile.api
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app
+      - ./data:/data
+
+
+  web:
+    build:
+      context: ./web
+      dockerfile: ../Dockerfile.web
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - api
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./web:/usr/src/app
+      - web_node_modules:/usr/src/app/node_modules
+    command: sh -c "npm install --include=dev && npm run dev"
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: airisk
+      POSTGRES_PASSWORD: airisk
+      POSTGRES_DB: airisk
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+# Named volumes must be declared as a MAPPING at the root:
+volumes:
+  pgdata:
+  web_node_modules:

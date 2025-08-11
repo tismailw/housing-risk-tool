@@ -1,0 +1,4 @@
+geo_type,code,name,state,county,median_rent,median_price,crime_index,school_index,flood_risk,income_median
+ZIP,20147,Ashburn, VA,Loudoun,2400,650000,2.1,8.0,0.05,150000
+ZIP,20148,Broadlands, VA,Loudoun,2300,620000,2.4,7.8,0.06,140000
+ZIP,20164,Sterling, VA,Loudoun,2000,500000,3.0,7.0,0.07,120000

@@ -1,0 +1,15 @@
+FROM node:20
+WORKDIR /usr/src/app
+
+# Make sure dev deps (like vite) are installed
+ENV NODE_ENV=development
+ENV NPM_CONFIG_UPDATE_NOTIFIER=false
+
+COPY package.json package-lock.json* ./
+RUN npm install --include=dev
+
+# copy the rest of the app
+COPY . /usr/src/app/
+
+EXPOSE 5173
+CMD ["npm", "run", "dev"]
