@@ -7,3 +7,4 @@ psycopg[binary]==3.2.1
 redis==5.0.7
 python-dotenv==1.0.1
 pandas
+openpyxl>=3.1
